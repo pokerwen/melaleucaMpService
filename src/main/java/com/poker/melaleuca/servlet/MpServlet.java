@@ -1,16 +1,16 @@
-package com.poker.melaleuca.mpService;
+package com.poker.melaleuca.servlet;
 
 import org.apache.commons.codec.digest.DigestUtils;
+import spark.servlet.SparkApplication;
 
-import static spark.Spark.*;
+import static spark.Spark.get;
 
 /**
- * Created by pokerwen on 2015/10/20.
+ * Created by pokerwen on 2015/10/21.
  */
-public class HelloWorld {
-    public static void main(String[] args) {
-        get("/hello", (req, res) -> "Hello World");
+public class MpServlet implements SparkApplication {
 
+    public void init() {
         get("/processMpMessage", ((request, response) -> {
             String signature = request.queryParams("signature");
             System.out.println("signature:" + signature);
@@ -35,13 +35,13 @@ public class HelloWorld {
 
     public static String TOKEN = "PokerWen";
 
-    public static String encodeWeChatString(String timestamp, String nonce){
+    public String encodeWeChatString(String timestamp, String nonce){
         String sortedString = orderStringsInDictionary(TOKEN, timestamp, nonce);
 
         return DigestUtils.sha1Hex(sortedString);
     }
 
-    public static String orderStringsInDictionary(String str1, String str2, String str3){
+    public String orderStringsInDictionary(String str1, String str2, String str3){
         String[] inputAry = { str1, str2, str3};
         for (int i = 0; i < inputAry.length - 1; i++) {
             boolean change = false; // 用作冒泡排序的标记，如果一趟排序存在交换，则change设为true，说明还需要下一趟排序
@@ -68,7 +68,7 @@ public class HelloWorld {
         return sb.toString();
     }
 
-    private static boolean bigger(String s1, String s2) {
+    private boolean bigger(String s1, String s2) {
         int length1 = s1.length();
         int length2 = s2.length();
         int i = 0;
