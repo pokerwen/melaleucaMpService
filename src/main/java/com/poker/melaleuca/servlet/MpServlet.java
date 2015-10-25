@@ -44,7 +44,7 @@ public class MpServlet implements SparkApplication {
     public String orderStringsInDictionary(String str1, String str2, String str3){
         String[] inputAry = { str1, str2, str3};
         for (int i = 0; i < inputAry.length - 1; i++) {
-            boolean change = false; // ÓÃ×÷Ã°ÅÝÅÅÐòµÄ±ê¼Ç£¬Èç¹ûÒ»ÌËÅÅÐò´æÔÚ½»»»£¬ÔòchangeÉèÎªtrue£¬ËµÃ÷»¹ÐèÒªÏÂÒ»ÌËÅÅÐò
+            boolean change = false; // ç”¨ä½œå†’æ³¡æŽ’åºçš„æ ‡è®°ï¼Œå¦‚æžœä¸€è¶ŸæŽ’åºå­˜åœ¨äº¤æ¢ï¼Œåˆ™changeè®¾ä¸ºtrueï¼Œè¯´æ˜Žè¿˜éœ€è¦ä¸‹ä¸€è¶ŸæŽ’åº
             for (int j = 0; j < inputAry.length - i - 1; j++) {
                 if (bigger(inputAry[j], inputAry[j + 1])) {
                     // swap(s[j], s[j + 1]);
@@ -55,7 +55,7 @@ public class MpServlet implements SparkApplication {
                 }
             }
             if (!change) {
-                break; // µ±changeÎªfalseµÄÊ±ºò£¬ËµÃ÷²»ÐèÒªÔÙÃ°ÅÝÁË
+                break; // å½“changeä¸ºfalseçš„æ—¶å€™ï¼Œè¯´æ˜Žä¸éœ€è¦å†å†’æ³¡äº†
             }
         }
 
