@@ -6,7 +6,6 @@ deploy:
   provider: releases
   user: "35051921@qq.com"
   password: "howareu812513"
-  file: "FILE TO UPLOAD"
   skip_cleanup: true
   on:
     tags: true
