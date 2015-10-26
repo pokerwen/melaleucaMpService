@@ -38,6 +38,9 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
+                <configuration>
+                    <warName>mpService</warName>
+                </configuration>
             </plugin>
             <!--<plugin>
                 <groupId>org.apache.tomcat.maven</groupId>
